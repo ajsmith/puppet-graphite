@@ -1,0 +1,13 @@
+fixtures:
+  symlinks:
+    graphite: "#{source_dir}"
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref:  "4.5.1"
+    bundler:
+      repo: "ploperations/bundler"
+      ref:  "1.0.1"
+    mysql:
+      repo: "puppetlabs/mysql"
+      ref: "3.3.0"

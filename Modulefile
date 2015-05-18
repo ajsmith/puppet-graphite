@@ -1,0 +1,10 @@
+name    'puppet-graphite'
+version '0.2.0'
+source 'UNKNOWN'
+author 'Alex Smith <alex.smith@redhat.com>'
+license 'Apache 2.0'
+summary 'Graphite monitoring system configuration.'
+description ''
+
+dependency 'puppetlabs/stdlib', '>=4.5.1'
+dependency 'puppetlabs/mysql', '>=3.3.0'
