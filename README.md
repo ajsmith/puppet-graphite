@@ -31,6 +31,10 @@ Here's a basic configuration:
 This module is currently only intended for Red Hat hosts (Fedora, CentOS,
 RHEL), at least for now.
 
+CentOS and RHEL systems need to add and enable the EPEL repository[^1].
+
+[^1]: https://fedoraproject.org/wiki/EPEL
+
 ## Release Notes
 
 2015/05/18 - v0.2.0 release.
