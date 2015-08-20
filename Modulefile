@@ -1,8 +1,8 @@
 name        'ajsmith-graphite'
-version     '0.2.0'
+version     '0.3.0'
 source      'UNKNOWN'
 author      'Alex Smith <alex.smith@redhat.com>'
-license     'Apache 2.0'
+license     'GPL-2'
 summary     'Graphite monitoring system configuration.'
 description 'Graphite monitoring system configuration.'
 
