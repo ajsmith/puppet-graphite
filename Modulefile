@@ -1,6 +1,6 @@
 name        'ajsmith-graphite'
 version     '0.3.0'
-source      'UNKNOWN'
+source      'https://github.com/ajsmith/puppet-graphite.git'
 author      'Alex Smith <alex.smith@redhat.com>'
 license     'GPL-2'
 summary     'Graphite monitoring system configuration.'
