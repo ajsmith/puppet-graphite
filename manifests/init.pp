@@ -2,6 +2,9 @@
 #
 # Configures Graphite for monitoring.
 #
+# Deprecation Notice: MySQL has been deprecated and will be replaced with
+# MariaDB soon.
+#
 # === Parameters
 #
 # [db_user]

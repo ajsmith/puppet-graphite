@@ -2,6 +2,9 @@
 #
 # MySQL configuration for Graphite.
 #
+# Deprecation Notice: MySQL has been deprecated and will be replaced with
+# MariaDB soon.
+#
 class graphite::mysql (
   $db_user       = $graphite::db_user,
   $db_password   = $graphite::db_password,
