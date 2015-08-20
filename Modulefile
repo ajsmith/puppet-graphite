@@ -7,4 +7,3 @@ summary     'Graphite monitoring system configuration.'
 description 'Graphite monitoring system configuration.'
 
 dependency 'puppetlabs/stdlib', '>=4.5.1'
-dependency 'puppetlabs/mysql', '>=3.3.0'
