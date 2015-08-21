@@ -7,3 +7,6 @@ summary     'Graphite monitoring system configuration.'
 description 'Graphite monitoring system configuration.'
 
 dependency 'puppetlabs/stdlib', '>=4.5.1'
+dependency 'puppetlabs/docker_platform', '>=1.1.0'
+dependency 'puppetlabs/vcsrepo', '>=1.3.1'
+dependency 'ajsmith/docker_systemd', '>=0.1.0'
