@@ -6,7 +6,7 @@ define graphite::docker::mariadb::container (
   $volumes_from     = ['graphite-mariadb-data'],
 ) {
 
-  docker_systemd::service { "$title":
+  docker_systemd::container { "$title":
     image        => $image,
     depends      => $depends,
     link         => $link,

@@ -6,7 +6,7 @@ define graphite::docker::web::container (
   $volumes_from     = undef,
 ) {
 
-  docker_systemd::service { "$title":
+  docker_systemd::container { "$title":
     image        => $image,
     depends      => $depends,
     link         => $link,
