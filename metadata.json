@@ -1,6 +1,6 @@
 {
   "name": "ajsmith-graphite",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Alex Smith <alex.smith@redhat.com>",
   "summary": "Graphite application configuration.",
   "license": "GPL-2",

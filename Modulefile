@@ -1,5 +1,5 @@
 name        'ajsmith-graphite'
-version     '0.3.0'
+version     '0.3.1'
 source      'https://github.com/ajsmith/puppet-graphite.git'
 author      'Alex Smith <alex.smith@redhat.com>'
 license     'GPL-2'
