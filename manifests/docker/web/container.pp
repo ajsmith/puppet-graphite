@@ -1,3 +1,7 @@
+# == Class: graphite::docker::web::container
+#
+# Configure a systemd service to run a Graphite Web container.
+
 define graphite::docker::web::container (
   $image            = 'graphite-web',
   $depends          = undef,
@@ -6,7 +10,7 @@ define graphite::docker::web::container (
   $volumes_from     = undef,
 ) {
 
-  docker_systemd::container { "$title":
+  docker_systemd::container { $title:
     image        => $image,
     depends      => $depends,
     link         => $link,

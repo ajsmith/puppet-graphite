@@ -44,7 +44,7 @@ class graphite (
   $storage_dir         = '/var/lib/carbon/',
   $whisper_dir         = '/var/lib/carbon/whisper/',
   $whitelists_dir      = '/var/lib/carbon/lists/',
-  ) {
+) {
 
   include ::graphite::config
   include ::graphite::mysql

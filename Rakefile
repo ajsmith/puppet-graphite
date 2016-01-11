@@ -5,4 +5,5 @@ require 'puppet-lint/tasks/puppet-lint'
 PuppetLint::RakeTask.new :lint do |config|
   config.relative = true
   config.ignore_paths = ["spec/fixtures/**/*.pp", "pkg/**/*.pp", "vendor/**/*.pp"]
+  config.disable_checks = ['80chars']
 end
