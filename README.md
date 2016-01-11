@@ -35,6 +35,10 @@ CentOS and RHEL systems need to add and enable the EPEL repository <https://fedo
 
 ## Release Notes
 
-### v0.3.2
+### 2016/01/11 v0.3.3
 
-Initial release.
+- Style fixes.
+
+### 2016/01/11 v0.3.2
+
+- Initial release.
