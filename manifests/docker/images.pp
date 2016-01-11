@@ -8,7 +8,7 @@ class graphite::docker::images {
     ensure   => latest,
     provider => git,
     source   => 'https://github.com/ajsmith/docker-graphite.git',
-    revision => 'master',
+    revision => '1.0',
   }
 
   Vcsrepo['/opt/docker-graphite']
