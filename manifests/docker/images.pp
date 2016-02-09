@@ -2,30 +2,33 @@
 #
 # Configure a host to build the Graphite docker images.
 
-class graphite::docker::images {
+class graphite::docker::images (
+  $build_dir    = '/opt/docker-graphite',
+  $vcs_revision = '1.1',
+){
 
-  vcsrepo { '/opt/docker-graphite':
+  vcsrepo { $build_dir:
     ensure   => latest,
     provider => git,
     source   => 'https://github.com/ajsmith/docker-graphite.git',
-    revision => '1.0',
+    revision => $vcs_revision,
   }
 
-  Vcsrepo['/opt/docker-graphite']
+  Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-mariadb':
     ensure     => present,
     docker_dir => '/opt/docker-graphite/mariadb',
   }
 
-  Vcsrepo['/opt/docker-graphite']
+  Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-carbon':
     ensure     => present,
     docker_dir => '/opt/docker-graphite/graphite-carbon',
   }
 
-  Vcsrepo['/opt/docker-graphite']
+  Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-web':
     ensure     => present,
