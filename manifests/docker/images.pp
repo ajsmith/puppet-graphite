@@ -35,4 +35,24 @@ class graphite::docker::images (
     docker_dir => '/opt/docker-graphite/graphite-web',
   }
 
+  Vcsrepo[$build_dir]
+  ~>
+  file {"${build_dir}/carbon/rhel/etc/carbon/carbon.conf":
+    ensure  => present,
+    content => template('graphite/etc/carbon/carbon.conf.erb'),
+    require => Package['python-carbon'],
+  }
+  ~>
+  Docker::Image['graphite-carbon']
+
+  Vcsrepo[$build_dir]
+  ~>
+  file {"${build_dir}/carbon/rhel/etc/carbon/storage-schemas.conf":
+    ensure  => present,
+    content => template('graphite/etc/carbon/storage-schemas.conf.erb'),
+    require => Package['python-carbon'],
+  }
+  ~>
+  Docker::Image['graphite-carbon']
+
 }
