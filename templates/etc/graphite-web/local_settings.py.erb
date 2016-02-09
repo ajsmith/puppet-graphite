@@ -55,7 +55,6 @@ SECRET_KEY = '<%= @django_secret_key %>'
 #####################################
 # Change only GRAPHITE_ROOT if your install is merely shifted from /opt/graphite
 # to somewhere else
-#GRAPHITE_ROOT = '/opt/graphite'
 GRAPHITE_ROOT = '/usr/share/graphite'
 
 # Most installs done outside of a separate tree such as /opt/graphite will only
@@ -72,8 +71,10 @@ CONTENT_DIR = '/usr/share/graphite/webapp/content'
 # default settings for each of these are relative to CONF_DIR and STORAGE_DIR
 #
 ## Webapp config files
-#DASHBOARD_CONF = '/etc/graphite-web/dashboard.conf'
-#GRAPHTEMPLATES_CONF = '/etc/graphite-web/graphTemplates.conf'
+#DASHBOARD_CONF = '/opt/graphite/conf/dashboard.conf'
+#GRAPHTEMPLATES_CONF = '/opt/graphite/conf/graphTemplates.conf'
+DASHBOARD_CONF = '/etc/graphite-web/dashboard.conf'
+GRAPHTEMPLATES_CONF = '/etc/graphite-web/graphTemplates.conf'
 
 ## Data directories
 # NOTE: If any directory is unreadable in DATA_DIRS it will break metric browsing
@@ -175,6 +176,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'USER': '<%= @db_user %>',
         'PASSWORD': '<%= @db_password %>',
+        'HOST': '<%= @db_host %>',
+        'PORT': '<%= @db_port %>',
     }
 }
 
@@ -194,7 +197,20 @@ DATABASES = {
 #REMOTE_STORE_FETCH_TIMEOUT = 6   # Timeout to fetch series data
 #REMOTE_STORE_FIND_TIMEOUT = 2.5  # Timeout for metric find requests
 #REMOTE_STORE_RETRY_DELAY = 60    # Time before retrying a failed remote webapp
+#REMOTE_STORE_USE_POST = False    # Use POST instead of GET for remote requests
 #REMOTE_FIND_CACHE_DURATION = 300 # Time to cache remote metric find results
+
+## Prefetch cache
+# set to True to fetch all metrics using a single http request per remote server
+# instead of one http request per target, per remote server.
+# Especially useful when generating graphs with more than 4-5 targets or if
+# there's significant latency between this server and the backends. (>20ms)
+#REMOTE_PREFETCH_DATA = False
+
+# During a rebalance of a consistent hash cluster, after a partition event on a replication > 1 cluster,
+# or in other cases we might receive multiple TimeSeries data for a metric key.  Merge them together rather
+# that choosing the "most complete" one (pre-0.9.14 behaviour).
+#REMOTE_STORE_MERGE_RESULTS = True
 
 ## Remote rendering settings
 # Set to True to enable rendering of Graphs on a remote webapp
@@ -213,6 +229,10 @@ DATABASES = {
 # You *should* use 127.0.0.1 here in most cases
 #CARBONLINK_HOSTS = ["127.0.0.1:7002:a", "127.0.0.1:7102:b", "127.0.0.1:7202:c"]
 #CARBONLINK_TIMEOUT = 1.0
+# Using 'query-bulk' queries for carbon
+# It's more effective, but python-carbon 0.9.13 (or latest from 0.9.x branch) is required
+# See https://github.com/graphite-project/carbon/pull/132 for details
+#CARBONLINK_QUERY_BULK = False
 
 #####################################
 # Additional Django Settings #
