@@ -3,8 +3,13 @@
 # Configure a host to build the Graphite docker images.
 
 class graphite::docker::images (
-  $build_dir    = '/opt/docker-graphite',
-  $vcs_revision = '1.1',
+  $build_dir           = '/opt/docker-graphite',
+  $vcs_revision        = '1.1',
+  $db_host             = 'graphite-db'
+  $db_user             = 'graphite',
+  $db_password         = '',
+  $django_secret_key   = 'UNSAFE_SECRET',
+  $http_port           = 80,
 ){
 
   vcsrepo { $build_dir:

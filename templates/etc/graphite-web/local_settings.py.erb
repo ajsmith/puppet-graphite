@@ -64,7 +64,7 @@ GRAPHITE_ROOT = '/usr/share/graphite'
 #STORAGE_DIR = '/opt/graphite/storage'
 #CONTENT_DIR = '/opt/graphite/webapp/content'
 CONF_DIR = '/etc/graphite-web'
-STORAGE_DIR = '<%= @storage_dir %>'
+STORAGE_DIR = '/var/lib/graphite-web'
 CONTENT_DIR = '/usr/share/graphite/webapp/content'
 
 # To further or fully customize the paths, modify the following. Note that the
@@ -83,8 +83,8 @@ GRAPHTEMPLATES_CONF = '/etc/graphite-web/graphTemplates.conf'
 #DATA_DIRS = [WHISPER_DIR, RRD_DIR] # Default: set from the above variables
 #LOG_DIR = '/opt/graphite/storage/log/webapp'
 #INDEX_FILE = '/opt/graphite/storage/index'  # Search index file
-WHISPER_DIR = '<%= @whisper_dir %>'
-RRD_DIR = '<%= @rrd_dir %>'
+WHISPER_DIR = '/var/lib/carbon/whisper/'
+RRD_DIR = '/var/lib/carbon/rrd/'
 DATA_DIRS = [WHISPER_DIR, RRD_DIR] # Default: set from the above variables
 LOG_DIR = '/var/log/graphite-web/'
 INDEX_FILE = '/var/lib/graphite-web/index'  # Search index file
