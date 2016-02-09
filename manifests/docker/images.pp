@@ -53,4 +53,31 @@ class graphite::docker::images (
   ~>
   Docker::Image['graphite-carbon']
 
+  Vcsrepo[$build_dir]
+  ~>
+  file { "${build_dir}/web/rhel/etc/graphite-web/dashboard.conf":
+    ensure  => present,
+    content => template('graphite/etc/graphite-web/dashboard.conf.erb'),
+  }
+  ~>
+  Docker::Image['graphite-web']
+
+  Vcsrepo[$build_dir]
+  ~>
+  file { "${build_dir}/web/rhel/etc/graphite-web/local_settings.py":
+    ensure  => present,
+    content => template('graphite/etc/graphite-web/local_settings.py.erb'),
+  }
+  ~>
+  Docker::Image['graphite-web']
+
+  Vcsrepo[$build_dir]
+  ~>
+  file { "${build_dir}/web/rhel/etc/httpd/conf.d/graphite-web.conf":
+    ensure  => present,
+    content => template('graphite/etc/httpd/conf.d/graphite-web.conf.erb'),
+  }
+  ~>
+  Docker::Image['graphite-web']
+
 }
