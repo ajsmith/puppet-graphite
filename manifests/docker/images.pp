@@ -4,7 +4,7 @@
 
 class graphite::docker::images (
   $build_dir    = '/opt/docker-graphite',
-  $vcs_revision = '1.1',
+  $vcs_revision = '1.0',
 ){
 
   vcsrepo { $build_dir:
