@@ -5,7 +5,7 @@
 class graphite::docker::images (
   $build_dir           = '/opt/docker-graphite',
   $vcs_revision        = '1.1',
-  $db_host             = 'graphite-db'
+  $db_host             = 'graphite-db',
   $db_user             = 'graphite',
   $db_password         = '',
   $django_secret_key   = 'UNSAFE_SECRET',
