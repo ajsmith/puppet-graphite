@@ -170,16 +170,17 @@ INDEX_FILE = '/var/lib/graphite-web/index'  # Search index file
 #}
 #
 
-DATABASES = {
-    'default': {
-        'NAME': 'graphite',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': '<%= @db_user %>',
-        'PASSWORD': '<%= @db_password %>',
-        'HOST': '<%= @db_host %>',
-        'PORT': '<%= @db_port %>',
-    }
-}
+# XXX Just use the default sqlite3 DB for now.
+# DATABASES = {
+#     'default': {
+#         'NAME': 'graphite',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': '<%= @db_user %>',
+#         'PASSWORD': '<%= @db_password %>',
+#         'HOST': '<%= @db_host %>',
+#         'PORT': '<%= @db_port %>',
+#     }
+# }
 
 
 #########################
