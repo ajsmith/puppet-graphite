@@ -31,14 +31,14 @@ class graphite::docker::images (
   ~>
   docker::image { 'graphite-carbon':
     ensure     => present,
-    docker_dir => "${build_dir}/graphite-carbon",
+    docker_dir => "${build_dir}/carbon",
   }
 
   Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-web':
     ensure     => present,
-    docker_dir => "${build_dir}/graphite-web",
+    docker_dir => "${build_dir}/web",
   }
 
   Vcsrepo[$build_dir]
