@@ -101,7 +101,7 @@ CentOS and RHEL systems need to add and enable the EPEL repository <https://fedo
 
 ## Release Notes
 
-### v0.4.0 unreleased
+### v0.4.0 2016/02/09
 
 - Configure Carbon for uncapped `MAX_CREATES_PER_MINUTE`.
 - Configure Carbon to enable the UDP listener by default.
