@@ -107,6 +107,8 @@ CentOS and RHEL systems need to add and enable the EPEL repository <https://fedo
 - Configure Carbon to enable the UDP listener by default.
 - Update Graphite default settings from latest EPEL release.
 - Allow custom configuration to be added to Graphite Docker images.
+- Allow Docker build dir to be configured.
+- Allow Graphite Dockerfile revision to be configured.
 
 ### v0.3.3 2016/01/11
 
