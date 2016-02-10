@@ -24,21 +24,21 @@ class graphite::docker::images (
   ~>
   docker::image { 'graphite-mariadb':
     ensure     => present,
-    docker_dir => '/opt/docker-graphite/mariadb',
+    docker_dir => "${build_dir}/mariadb",
   }
 
   Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-carbon':
     ensure     => present,
-    docker_dir => '/opt/docker-graphite/graphite-carbon',
+    docker_dir => "${build_dir}/graphite-carbon",
   }
 
   Vcsrepo[$build_dir]
   ~>
   docker::image { 'graphite-web':
     ensure     => present,
-    docker_dir => '/opt/docker-graphite/graphite-web',
+    docker_dir => "${build_dir}/graphite-web",
   }
 
   Vcsrepo[$build_dir]
