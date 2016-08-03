@@ -40,27 +40,19 @@ Docker already exist, so this module does not add yet another way to do it.
 
 ### Setup Requirements
 
- 1. Ensure that Docker is installed and running. On Red Hat systems, this can
-    easily be accomplished using plain ol' Puppet resources, as so:
+Ensure that Docker is installed and running. On Red Hat systems, this can
+easily be accomplished using plain ol' Puppet resources, as so:
 
-    ```puppet
-    package { 'docker':
-        ensure => latest
-    }
-    ->
-    service { 'docker':
-        ensure => true,
-        enable => true
-    }
-    ```
-
- 2. Hosts which build the images must also install Git:
-
-    ```puppet
-    package { 'git':
-        ensure => latest
-    }
-    ```
+```puppet
+package { 'docker':
+    ensure => latest
+}
+->
+service { 'docker':
+    ensure => true,
+    enable => true
+}
+```
 
 ### Beginning with graphite
 
