@@ -33,7 +33,7 @@
         },
         {
             "name": "ajsmith/docker_systemd",
-            "version_requirement": "0.2.x"
+            "version_requirement": "0.3.x"
         }
     ]
 }

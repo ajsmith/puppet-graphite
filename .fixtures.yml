@@ -1,12 +1,13 @@
 fixtures:
   symlinks:
     graphite: "#{source_dir}"
-  repositories:
-    docker_systemd: "https://github.com/ajsmith/puppet-docker_systemd.git"
   forge_modules:
     stdlib:
       repo: "puppetlabs/stdlib"
       ref:  "4.5.1"
+    docker_systemd:
+      repo: "ajsmith/docker_systemd"
+      ref:  "0.3.1"
     mysql:
       repo: "puppetlabs/mysql"
       ref:  "3.6.2"
