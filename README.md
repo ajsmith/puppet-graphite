@@ -123,7 +123,12 @@ Docker and systemd.
 ### v0.5.0 (unreleased)
 
 - Ugrade to ajsmith/docker_systemd v0.3.x.
-- Add `pull_image` and `systemd_env_file` options for Docker containers.
+- Add the following options for Docker containers:
+    - `pull_image`
+    - `volume`
+    - `env`
+    - `env_file`
+    - `systemd_env_file`
 - Remove resources for building Graphite Docker images.
 - Remove legacy Graphite installation method.
 
