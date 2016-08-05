@@ -3,7 +3,7 @@
 # Configure a systemd service to run a MariaDB container.
 
 define graphite::docker::mariadb::container (
-  $image            = 'graphite-mariadb',
+  $image            = 'ajsmith/graphite-mariadb',
   $pull_image       = false,
   $depends          = ['graphite-mariadb-data'],
   $link             = undef,

@@ -3,7 +3,7 @@
 # Configure a systemd service to run a Graphite Carbon container.
 
 define graphite::docker::carbon::container (
-  $image            = 'graphite-carbon',
+  $image            = 'ajsmith/graphite-carbon',
   $pull_image       = false,
   $depends          = undef,
   $link             = undef,

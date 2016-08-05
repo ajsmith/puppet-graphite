@@ -129,6 +129,9 @@ Docker and systemd.
     - `env`
     - `env_file`
     - `systemd_env_file`
+- Set default Graphite Carbon image to `ajsmith/graphite-carbon`.
+- Set default Graphite Web image to `ajsmith/graphite-web`.
+- Set default Graphite MariaDB image to `ajsmith/graphite-mariadb`.
 - Remove resources for building Graphite Docker images.
 - Remove legacy Graphite installation method.
 

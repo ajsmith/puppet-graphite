@@ -3,7 +3,7 @@
 # Configure a systemd service to run a Graphite Web container.
 
 define graphite::docker::web::container (
-  $image            = 'graphite-web',
+  $image            = 'ajsmith/graphite-web',
   $pull_image       = false,
   $depends          = undef,
   $link             = undef,
