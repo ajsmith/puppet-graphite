@@ -115,7 +115,7 @@ Docker and systemd.
 
 ## Release Notes
 
-### v0.5.0 (unreleased)
+### v0.5.1 2016/08/05
 
 - Ugrade to ajsmith/docker_systemd v0.3.x.
 - Add the following options for Docker containers:
