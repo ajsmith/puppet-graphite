@@ -93,6 +93,11 @@ CentOS and RHEL systems need to add and enable the EPEL repository <https://fedo
 
 ## Release Notes
 
+### v0.5.0 (unreleased)
+
+- Ugrade to ajsmith/docker_systemd v0.3.x.
+- Removed resources for building Graphite Docker images.
+
 ### v0.4.0 2016/02/09
 
 - Configure Carbon for uncapped `MAX_CREATES_PER_MINUTE`.
