@@ -12,15 +12,15 @@
 
 ## Overview
 
-This module configures the Graphite monitoring server using Docker.
+This module configures the Graphite monitoring server using Docker and systemd.
 
 ## Setup
 
 ### What graphite affects
 
-To configure Graphite components to run as standard system services, this
-module will generate systemd unit files in `/etc/systemd/system/`. Depending on
-how a host is configured, the following unit files may be generated:
+To configure Graphite components to run as normal systemd services, this module
+will generate systemd unit files in `/etc/systemd/system/`. Depending on how a
+host is configured, the following unit files may be generated:
 
   * */etc/systemd/system/docker-graphite-web.service*
   * */etc/systemd/system/docker-graphite-carbon.service*
