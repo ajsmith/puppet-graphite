@@ -8,7 +8,10 @@ define graphite::docker::web::container (
   $depends          = undef,
   $link             = undef,
   $publish          = undef,
+  $volume           = undef,
   $volumes_from     = undef,
+  $env              = undef,
+  $env_file         = undef,
   $systemd_env_file = undef,
 ) {
 
@@ -18,7 +21,10 @@ define graphite::docker::web::container (
     depends          => $depends,
     link             => $link,
     publish          => $publish,
+    volume           => $volume,
     volumes_from     => $volumes_from,
+    env              => $env,
+    env_file         => $env_file,
     systemd_env_file => $systemd_env_file,
   }
 

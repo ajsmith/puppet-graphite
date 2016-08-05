@@ -8,7 +8,10 @@ define graphite::docker::mariadb::container (
   $depends          = ['graphite-mariadb-data'],
   $link             = undef,
   $publish          = undef,
+  $volume           = undef,
   $volumes_from     = ['graphite-mariadb-data'],
+  $env              = undef,
+  $env_file         = undef,
   $systemd_env_file = undef,
 ) {
 
@@ -18,7 +21,10 @@ define graphite::docker::mariadb::container (
     depends          => $depends,
     link             => $link,
     publish          => $publish,
+    volume           => $volume,
     volumes_from     => $volumes_from,
+    env              => $env,
+    env_file         => $env_file,
     systemd_env_file => $systemd_env_file,
   }
 
