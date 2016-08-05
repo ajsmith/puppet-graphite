@@ -15,11 +15,6 @@ define graphite::docker::web::container (
   $systemd_env_file = undef,
 ) {
 
-  class { 'graphite::docker::web::syncdb':
-    graphite_web_container => $title,
-  }
-
-  ->
   docker_systemd::container { $title:
     image            => $image,
     pull_image       => $pull_image,
@@ -31,6 +26,11 @@ define graphite::docker::web::container (
     env              => $env,
     env_file         => $env_file,
     systemd_env_file => $systemd_env_file,
+  }
+
+  ->
+  class { 'graphite::docker::web::syncdb':
+    graphite_web_container => $title,
   }
 
 }
