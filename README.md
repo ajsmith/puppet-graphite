@@ -127,6 +127,8 @@ Docker and systemd.
 - Set default Graphite Carbon image to `ajsmith/graphite-carbon`.
 - Set default Graphite Web image to `ajsmith/graphite-web`.
 - Set default Graphite MariaDB image to `ajsmith/graphite-mariadb`.
+- Add class to which provides Graphite Web syncdb script.
+- Update rspec tests.
 - Remove resources for building Graphite Docker images.
 - Remove legacy Graphite installation method.
 
