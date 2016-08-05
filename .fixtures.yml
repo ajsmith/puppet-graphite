@@ -8,6 +8,3 @@ fixtures:
     docker_systemd:
       repo: "ajsmith/docker_systemd"
       ref:  "0.3.1"
-    mysql:
-      repo: "puppetlabs/mysql"
-      ref:  "3.6.2"
