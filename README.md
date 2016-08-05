@@ -94,11 +94,6 @@ graphite::docker::web::container { 'graphite-web':
   publish      => ['8080:80/tcp'],
   volumes_from => ['graphite-carbon-data'],
 }
-->
-docker_systemd::exec { 'graphite_web_syncdb':
-  command   => '/usr/lib/python2.7/site-packages/graphite/manage.py syncdb --noinput',
-  container => 'graphite-web',
-}
 
 Graphite::Docker::Mariadb::Container['graphite-mariadb']
 ->
