@@ -97,7 +97,8 @@ CentOS and RHEL systems need to add and enable the EPEL repository <https://fedo
 
 - Ugrade to ajsmith/docker_systemd v0.3.x.
 - Add `pull_image` and `systemd_env_file` options for Docker containers.
-- Removed resources for building Graphite Docker images.
+- Remove resources for building Graphite Docker images.
+- Remove legacy Graphite installation method.
 
 ### v0.4.0 2016/02/09
 
