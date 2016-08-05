@@ -89,8 +89,6 @@ to the source for more in depth information about configuration options.
 This module is currently only intended for Red Hat, Fedora, or CentOS systems
 capable of running Docker.
 
-CentOS and RHEL systems need to add and enable the EPEL repository <https://fedoraproject.org/wiki/EPEL>.
-
 ## Release Notes
 
 ### v0.5.0 (unreleased)
