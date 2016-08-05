@@ -43,7 +43,7 @@ Docker already exist, so this module does not add yet another way to do it.
 Ensure that Docker is installed and running. On Red Hat systems, this can
 easily be accomplished using plain ol' Puppet resources, as so:
 
-```puppet
+```.puppet
 package { 'docker':
     ensure => latest
 }
@@ -56,38 +56,67 @@ service { 'docker':
 
 ### Beginning with graphite
 
-If you don't really care about configuring things yourself, you could just try
-copying this into a Puppet file and running it:
-
-```puppet
-class {'::graphite':
-  http_port           => 8080,
-  django_secret_key   => "c3NoaGggaXQncyBhIHNlY3JldAo=",
-  db_password         => "graphitedbsecret",
-  mysql_root_password => "mysqlsecret",
-}
-```
+As stated above, Graphite is installed as a set of Docker containers. Each
+container is configured as a systemd service to automatically handle starting
+and ordering of services at boot.
 
 ## Usage
 
-Here's a basic configuration:
+Here's an example which deploys a full set of Graphite containers including
+persistent storage using data volume containers:
 
-```puppet
-class {'::graphite':
-  http_port           => 8080,
-  django_secret_key   => "c3NoaGggaXQncyBhIHNlY3JldAo=",
-  db_password         => "graphitedbsecret",
-  mysql_root_password => "mysqlsecret",
+```.puppet
+graphite::docker::carbon::data_volume_container { 'graphite-carbon-data':
+  image => 'ajsmith/graphite-carbon',
 }
-```
+->
+graphite::docker::carbon::container { 'graphite-carbon':
+  image        => 'ajsmith/graphite-carbon',
+  depends      => ['graphite-carbon-data'],
+  volumes_from => ['graphite-carbon-data'],
+  publish      => ['2003:2003/tcp', '2004:2004/tcp', '7002:7002/tcp'],
+}
 
-Note: This package is currently in a somewhat transitional state. Please look
-to the source for more in depth information about configuration options.
+graphite::docker::mariadb::data_volume_container { 'graphite-mariadb-data':
+  image => 'ajsmith/graphite-mariadb',
+}
+->
+graphite::docker::mariadb::container { 'graphite-mariadb':
+  image        => 'ajsmith/graphite-mariadb',
+  depends      => ['graphite-mariadb-data'],
+  volumes_from => ['graphite-mariadb-data'],
+}
+
+graphite::docker::web::container { 'graphite-web':
+  image        => 'ajsmith/graphite-web',
+  depends      => ['graphite-mariadb'],
+  link         => ['graphite-mariadb:db'],
+  publish      => ['8080:80/tcp'],
+  volumes_from => ['graphite-carbon-data'],
+}
+->
+docker_systemd::exec { 'graphite_web_syncdb':
+  command   => '/usr/lib/python2.7/site-packages/graphite/manage.py syncdb --noinput',
+  container => 'graphite-web',
+}
+
+Graphite::Docker::Mariadb::Container['graphite-mariadb']
+->
+Graphite::Docker::Web::Container['graphite-web']
+
+Graphite::Docker::Carbon::Container['graphite-carbon']
+->
+Graphite::Docker::Web::Container['graphite-web']
+```
 
 ## Compatibility
 
-This module is currently only intended for Red Hat, Fedora, or CentOS systems
-capable of running Docker.
+This module is currently intended for Red Hat Linux systems capable of running
+Docker and systemd.
+
+- RHEL 7+
+- CentOS 7+
+- Fedora 20+
 
 ## Release Notes
 
