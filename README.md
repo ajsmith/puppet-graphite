@@ -115,6 +115,13 @@ Docker and systemd.
 
 ## Release Notes
 
+### v0.6.0 2016/08/17
+
+- Upgrade to ajsmith/docker_systemd v0.4.x.
+- Provide support for more Docker options:
+  - `log_driver`
+  - `log_opt`
+
 ### v0.5.1 2016/08/05
 
 - Ugrade to ajsmith/docker_systemd v0.3.x.
