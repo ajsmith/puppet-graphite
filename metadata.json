@@ -1,6 +1,6 @@
 {
     "name": "ajsmith-graphite",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "author": "Alex Smith <alex.smith@redhat.com>",
     "summary": "Graphite server configuration using Docker.",
     "license": "GPL-2.0",
